@@ -1,0 +1,41 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:dev
+    build: .
+    restart: on-failure
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgresql://vaultwarden:vaultwarden@postgres:5432/vaultwarden
+      ADMIN_TOKEN: admin
+      ROCKET_PORT: "8080"
+      SMTP_HOST: mailhog
+      SMTP_PORT: "1025"
+      SMTP_SECURITY: off
+      SMTP_USERNAME: vaultwarden
+      SMTP_PASSWORD: vaultwarden
+      SMTP_FROM: vaultwarden@example.com
+    volumes:
+      - vaultwarden-data:/data
+  postgres:
+    image: postgres:16.4-alpine
+    user: postgres
+    restart: on-failure
+    environment:
+      POSTGRES_DB: vaultwarden
+      POSTGRES_USER: vaultwarden
+      POSTGRES_PASSWORD: vaultwarden
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    restart: on-failure
+    ports:
+      - "8081:8025"
+    environment:
+      MH_HOSTNAME: mailhog
+volumes:
+    vaultwarden-data:
+    postgres-data:
