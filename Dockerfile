@@ -1,3 +1,3 @@
-FROM vaultwarden/server:1.32.3-alpine
+FROM vaultwarden/server:1.32.4-alpine
 
 COPY ./email /data/templates/email
