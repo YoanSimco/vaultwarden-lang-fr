@@ -1,0 +1,11 @@
+Votre changement d'adresse mail
+<!---------------->
+Un utilisateur ({{ acting_address }}) a récemment essayé de modifier leur profil pour utiliser cette adresse mail ({{ existing_address }}). Vous avez déjà été invité à rejoindre Vaultwarden avec cette même adresse.
+
+Pour modifier votre adresse mail, devriez d'abord supprimer le compte utilisateur associé avec cette adresse mail ({{ existing_address }}) :
+Demander une suppression de compte : {{url}}/#/recover-delete
+
+Ceci étant fait, vous pourrez modifier l'adresse mail de votre compte existant pour utiliser cette adresse. Vos invitations devront être renvoyées.
+
+Si vous n'avez pas essayé de modifier votre adresse mail, contactez votre administrateur.
+{{> email/email_footer_text }}
