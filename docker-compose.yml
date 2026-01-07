@@ -20,7 +20,7 @@ services:
     volumes:
       - vaultwarden-data:/data
   postgres:
-    image: postgres:16.4-alpine
+    image: postgres:18.1-alpine
     user: postgres
     restart: on-failure
     environment:
