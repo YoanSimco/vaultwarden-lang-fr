@@ -1,6 +1,6 @@
 services:
   vaultwarden:
-    image: vaultwarden/server:dev
+    image: vaultwarden:dev
     build: .
     restart: on-failure
     depends_on:
@@ -20,7 +20,7 @@ services:
     volumes:
       - vaultwarden-data:/data
   postgres:
-    image: postgres:18.1-alpine
+    image: public.ecr.aws/docker/library/postgres:18.3-alpine
     user: postgres
     restart: on-failure
     environment:
