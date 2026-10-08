@@ -1,0 +1,12 @@
+Récupération du compte administrateur de l'organisation {{org_name}}
+<!---------------->
+{{#if reset_password}}
+Le mot de passe maître de {{user_name}} a été modifié.
+{{/if}}
+{{#if reset_2fa}}
+Vos fournisseurs de vérification en deux étapes ont été réinitialisés.{{#if fallback_2fa_email}} L'authentification à deux facteurs par e-mail a été activée comme solution de secours.{{/if}}
+{{/if}}
+
+Si vous n'êtes pas à l'origine de cette demande, veuillez contacter immédiatement votre administrateur.
+
+{{> email/email_footer_text }}

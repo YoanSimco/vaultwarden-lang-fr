@@ -1,10 +1,17 @@
-Le mot de passe principal a été modifié
+Récupération du compte administrateur de l'organisation {{org_name}}
 <!---------------->
 {{> email/email_header }}
 <table width="100%" cellpadding="0" cellspacing="0" style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; color: #333; line-height: 25px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none;">
     <tr style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; color: #333; line-height: 25px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none;">
         <td class="content-block" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; color: #333; line-height: 25px; margin: 0; -webkit-font-smoothing: antialiased; padding: 0 0 10px; -webkit-text-size-adjust: none;" valign="top">
-            Le mot de passe principal de <b style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; color: #333; line-height: 25px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none;">{{user_name}}</b> a été modifié par un administrateur de votre organisation <b style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; color: #333; line-height: 25px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none;">{{org_name}}</b>. Si vous n'êtes pas à l'origine de cette demande, veuillez contacter immédiatement votre administrateur.
+            {{#if reset_password}}
+                Le mot de passe maître de <b style="margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 16px; color: #333; line-height: 25px; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none;">{{user_name}}</b> a été modifié.
+            {{/if}}
+            {{#if reset_2fa}}
+                Vos fournisseurs de vérification en deux étapes ont été réinitialisés.{{#if fallback_2fa_email}} L'authentification à deux facteurs par e-mail a été activée comme solution de secours.{{/if}}
+            {{/if}}
+            <br>
+            Si vous n'êtes pas à l'origine de cette demande, veuillez contacter immédiatement votre administrateur.
         </td>
     </tr>
 </table>
